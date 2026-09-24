@@ -1,0 +1,806 @@
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 430px;
+  padding: 70px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 78% 50%,
+      rgba(245, 174, 58, 0.18),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 35% 50%,
+      rgba(63, 91, 160, 0.15),
+      transparent 40%
+    ),
+    #161827;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  isolation: isolate;
+}
+
+.backgroundGlow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: rgba(239, 171, 55, 0.07);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 52%;
+  max-width: 700px;
+}
+
+.badge {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(246, 194, 86, 0.45);
+  border-radius: 999px;
+  background: rgba(246, 194, 86, 0.08);
+  color: #f5c861;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.badge svg {
+  font-size: 15px;
+}
+
+.title {
+  margin: 0;
+  color: #f7f8fc;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 0.98;
+  letter-spacing: -2.5px;
+  font-weight: 800;
+}
+
+.title span {
+  display: block;
+  color: #f3bd4f;
+}
+
+.description {
+  max-width: 600px;
+  margin: 25px 0 22px;
+  color: rgba(239, 243, 252, 0.78);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.streakRow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: fit-content;
+  margin-bottom: 22px;
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(10px);
+}
+
+.streakIcon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(242, 184, 67, 0.16);
+  color: #f5c861;
+}
+
+.streakRow strong {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.streakRow span {
+  display: block;
+  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 11px;
+}
+
+.progressSection {
+  max-width: 360px;
+  margin-bottom: 25px;
+}
+
+.progressTop {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+}
+
+.progressTop strong {
+  color: #f5c861;
+}
+
+.progressBar {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.progressFill {
+  width: 71%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    #d99b2d,
+    #f6c95d
+  );
+  box-shadow: 0 0 15px rgba(245, 193, 76, 0.35);
+  animation: progressLoad 1.2s ease-out;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-width: 170px;
+  padding: 14px 22px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    #f6c85d,
+    #e7a92f
+  );
+  color: #1b1b24;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow:
+    0 10px 30px rgba(226, 166, 47, 0.2);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.cta:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.06);
+  box-shadow:
+    0 14px 35px rgba(226, 166, 47, 0.3);
+}
+
+.cta:active {
+  transform: translateY(0);
+}
+
+.cta:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+.cta.claimed {
+  background: linear-gradient(
+    135deg,
+    #76d69a,
+    #45b879
+  );
+  color: #102219;
+}
+
+.visual {
+  position: relative;
+  width: 44%;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualGlow {
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  background: rgba(241, 183, 61, 0.1);
+  filter: blur(55px);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+.rewardCard {
+  position: relative;
+  z-index: 3;
+  width: 350px;
+  min-height: 300px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(57, 61, 85, 0.8),
+      rgba(26, 29, 45, 0.9)
+    );
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  transform: rotate(2deg);
+  animation: cardFloat 5s ease-in-out infinite;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.cardLabel svg {
+  color: #f5c861;
+  font-size: 16px;
+}
+
+.star {
+  color: #f5c861;
+  animation: starSpin 5s linear infinite;
+}
+
+.giftBox {
+  position: relative;
+  width: 105px;
+  height: 100px;
+  margin: 25px auto 15px;
+}
+
+.giftBody {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  width: 85px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 10px 14px 14px;
+  background: linear-gradient(
+    135deg,
+    #e9a832,
+    #f5ca62
+  );
+  box-shadow:
+    0 15px 30px rgba(230, 166, 43, 0.25);
+}
+
+.giftBody svg {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 34px;
+}
+
+.giftLid {
+  position: absolute;
+  left: 4px;
+  top: 20px;
+  width: 97px;
+  height: 23px;
+  border-radius: 7px;
+  background: linear-gradient(
+    135deg,
+    #f4bf50,
+    #d99527
+  );
+  z-index: 2;
+}
+
+.giftRibbon {
+  position: absolute;
+  left: 47px;
+  top: 18px;
+  width: 13px;
+  height: 82px;
+  border-radius: 3px;
+  background: rgba(255, 239, 184, 0.85);
+  z-index: 4;
+}
+
+.rewardInfo {
+  text-align: center;
+}
+
+.rewardInfo span {
+  display: block;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+}
+
+.rewardInfo strong {
+  display: block;
+  margin-top: 4px;
+  color: #f7c95d;
+  font-size: 25px;
+}
+
+.cardBottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 10px;
+}
+
+.available {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #83dca5;
+}
+
+.available i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #83dca5;
+  box-shadow: 0 0 8px rgba(131, 220, 165, 0.7);
+}
+
+.coin {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 11px;
+  background: linear-gradient(
+    145deg,
+    #ffe08a,
+    #d99b2d
+  );
+  color: #654710;
+  border: 2px solid rgba(255, 244, 194, 0.65);
+  box-shadow:
+    0 10px 25px rgba(228, 170, 46, 0.28);
+}
+
+.coinOne {
+  width: 52px;
+  height: 52px;
+  top: 12%;
+  left: 8%;
+  animation: coinFloat 4s ease-in-out infinite;
+}
+
+.coinTwo {
+  width: 35px;
+  height: 35px;
+  bottom: 20%;
+  left: 3%;
+  font-size: 18px;
+  animation: coinFloat 3.5s ease-in-out infinite 0.5s;
+}
+
+.coinThree {
+  width: 46px;
+  height: 46px;
+  right: 2%;
+  top: 22%;
+  animation: coinFloat 4.5s ease-in-out infinite 1s;
+}
+
+.miniCalendar {
+  position: absolute;
+  z-index: 6;
+  right: 2%;
+  bottom: 12%;
+  width: 76px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  background: rgba(35, 39, 59, 0.8);
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  animation: calendarFloat 4s ease-in-out infinite;
+}
+
+.miniCalendar svg {
+  color: #f5c861;
+  font-size: 17px;
+}
+
+.miniCalendar span {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.miniCalendar strong {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+@keyframes cardFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(2deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes coinFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-13px) rotate(8deg);
+  }
+}
+
+@keyframes calendarFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes progressLoad {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 71%;
+  }
+}
+
+@keyframes starSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .banner {
+    min-height: 520px;
+    padding: 60px 6%;
+    gap: 30px;
+  }
+
+  .content {
+    width: 50%;
+  }
+
+  .visual {
+    width: 50%;
+  }
+
+  .rewardCard {
+    width: 300px;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 700px) {
+  .banner {
+    min-height: 520px;
+    padding: 45px 22px 55px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .title {
+    width: 100%;
+    font-size: 43px;
+    letter-spacing: -1.8px;
+    text-align: center;
+  }
+
+  .description {
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .streakRow {
+    margin: 0 auto 20px;
+    text-align: left;
+  }
+
+  .progressSection {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 22px;
+    text-align: left;
+  }
+
+  .progressTop {
+    text-align: left;
+  }
+
+  .cta {
+    margin: 0 auto;
+  }
+
+  .visual {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rewardCard {
+    width: min(340px, 82vw);
+    min-height: 290px;
+  }
+
+  .coinOne {
+    left: 5%;
+  }
+
+  .coinThree {
+    right: 2%;
+  }
+
+  .miniCalendar {
+    right: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .banner {
+    min-height: 520px;
+    padding: 38px 18px 45px;
+    gap: 24px;
+  }
+
+  .content {
+    width: 100%;
+    align-items: center;
+  }
+
+  .badge {
+    margin-bottom: 17px;
+  }
+
+  .title {
+    font-size: 38px;
+    letter-spacing: -1.5px;
+    text-align: center;
+  }
+
+  .description {
+    max-width: 330px;
+    margin: 17px auto 19px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .streakRow {
+    margin: 0 auto 18px;
+    padding: 9px 13px;
+  }
+
+  .streakIcon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .streakRow strong {
+    font-size: 13px;
+  }
+
+  .streakRow span {
+    font-size: 10px;
+  }
+
+  .progressSection {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 20px;
+  }
+
+  .progressTop {
+    font-size: 11px;
+  }
+
+  .progressBar {
+    height: 6px;
+  }
+
+  .cta {
+    min-width: 155px;
+    padding: 13px 19px;
+    font-size: 13px;
+  }
+
+  .visual {
+    width: 100%;
+    min-height: 290px;
+  }
+
+  .rewardCard {
+    width: 290px;
+    min-height: 275px;
+    padding: 18px;
+  }
+
+  .giftBox {
+    transform: scale(0.88);
+    margin: 17px auto 8px;
+  }
+
+  .rewardInfo strong {
+    font-size: 22px;
+  }
+
+  .cardBottom {
+    margin-top: 15px;
+    padding-top: 12px;
+  }
+
+  .coinOne {
+    width: 44px;
+    height: 44px;
+    left: 2%;
+  }
+
+  .coinTwo {
+    width: 30px;
+    height: 30px;
+    left: 1%;
+    bottom: 15%;
+  }
+
+  .coinThree {
+    width: 40px;
+    height: 40px;
+    right: 1%;
+  }
+
+  .miniCalendar {
+    right: -2%;
+    bottom: 8%;
+    width: 68px;
+    padding: 10px;
+  }
+
+  .miniCalendar strong {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .banner {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .title {
+    font-size: 35px;
+  }
+
+  .description {
+    max-width: 300px;
+    font-size: 12px;
+  }
+
+  .streakRow {
+    max-width: 270px;
+  }
+
+  .progressSection {
+    max-width: 280px;
+  }
+
+  .rewardCard {
+    width: 270px;
+  }
+
+  .visual {
+    min-height: 275px;
+  }
+
+  .coinOne {
+    width: 40px;
+    height: 40px;
+  }
+
+  .coinThree {
+    width: 36px;
+    height: 36px;
+  }
+
+  .miniCalendar {
+    width: 62px;
+    right: -4%;
+  }
+}
