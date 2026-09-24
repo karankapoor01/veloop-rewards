@@ -119,6 +119,16 @@ Features:
 - GitHub
 - Vercel for deployment
 
+## 🔗 Project Links
+
+### Live Demo
+
+https://veloop-rewards-sable.vercel.app/
+
+### GitHub Repository
+
+https://github.com/karankapoor01/veloop-rewards
+
 ## Project Structure
 
 ```text
