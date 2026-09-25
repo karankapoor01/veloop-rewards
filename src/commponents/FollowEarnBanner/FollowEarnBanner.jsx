@@ -1,116 +1,172 @@
 import {
-  FaInstagram,
-  FaFacebookF,
-  FaYoutube,
-  FaLinkedinIn,
-  FaTelegramPlane,
-} from "react-icons/fa";
-import { FiArrowUpRight, FiUsers } from "react-icons/fi";
+  Users,
+  Star,
+  Gift,
+  Heart,
+  Megaphone,
+  ArrowRight,
+  Bell,
+  Check,
+} from "lucide-react";
 import styles from "./FollowEarnBanner.module.css";
 
 function FollowEarnBanner() {
-  const socialPlatforms = [
-    { icon: <FaInstagram />, label: "Instagram" },
-    { icon: <FaFacebookF />, label: "Facebook" },
-    { icon: <FaYoutube />, label: "YouTube" },
-    { icon: <FaLinkedinIn />, label: "LinkedIn" },
-    { icon: <FaTelegramPlane />, label: "Telegram" },
-  ];
-
   return (
     <section className={styles.banner}>
+      <div className={styles.backgroundGlow}></div>
+      <div className={styles.grid}></div>
+
+      <div className={styles.number}>04</div>
+
       <div className={styles.content}>
-        <div className={styles.badge}>
-          <FiUsers />
-          FOLLOW & EARN
+        <div className={styles.label}>
+          <Users size={14} />
+          <span>FOLLOW &amp; EARN</span>
         </div>
 
-        <h2>
-          Stay Connected.
-          <span>Get Rewarded.</span>
-        </h2>
+        <h2>Follow &amp; Earn</h2>
 
-        <p>
-          Follow our official channels, stay updated with the latest VELOOP
-          Rewards news, and participate in eligible social campaigns.
+        <p className={styles.description}>
+          Follow VELOOP Rewards on our official channels and participate in
+          eligible social campaigns to unlock rewards.
         </p>
 
-        <div className={styles.socialList}>
-          {socialPlatforms.map((platform) => (
-            <div className={styles.socialItem} key={platform.label}>
-              <div className={styles.socialIcon}>{platform.icon}</div>
-              <span>{platform.label}</span>
-            </div>
-          ))}
-        </div>
-
-        <button className={styles.cta}>
-          Explore Channels
-          <FiArrowUpRight />
+        <button className={styles.cta} type="button">
+          <span>Explore Our Channels</span>
+          <ArrowRight size={18} />
         </button>
       </div>
 
       <div className={styles.visual}>
-        <div className={styles.glow}></div>
+        <div className={styles.orbit + " " + styles.orbitOne}></div>
+        <div className={styles.orbit + " " + styles.orbitTwo}></div>
+        <div className={styles.orbit + " " + styles.orbitThree}></div>
+
+        <div
+          className={
+            styles.socialBubble + " " + styles.peopleBubble
+          }
+        >
+          <Users size={21} />
+        </div>
+
+        <div
+          className={
+            styles.socialBubble + " " + styles.starBubble
+          }
+        >
+          <Star size={22} fill="currentColor" />
+        </div>
+
+        <div
+          className={
+            styles.socialBubble + " " + styles.giftBubble
+          }
+        >
+          <Gift size={20} />
+        </div>
+
+        <div
+          className={
+            styles.socialBubble + " " + styles.megaphoneBubble
+          }
+        >
+          <Megaphone size={20} />
+        </div>
+
+        <div
+          className={
+            styles.socialBubble + " " + styles.heartBubble
+          }
+        >
+          <Heart size={20} fill="currentColor" />
+        </div>
 
         <div className={styles.phone}>
-          <div className={styles.phoneTop}>
-            <span>VELOOP</span>
-            <span className={styles.liveDot}></span>
-          </div>
+          <div className={styles.phoneFrame}>
+            <div className={styles.phoneNotch}></div>
 
-          <div className={styles.profile}>
-            <div className={styles.profileAvatar}>V</div>
+            <div className={styles.phoneTop}>
+              <span>9:41</span>
 
-            <div>
+              <div>
+                <span className={styles.signal}></span>
+                <span className={styles.battery}></span>
+              </div>
+            </div>
+
+            <div className={styles.profile}>
+              <div className={styles.profileLogo}>V</div>
+
               <strong>VELOOP Rewards</strong>
-              <small>@velooprewards</small>
+
+              <span>@velooprewards</span>
+
+              <div className={styles.followRow}>
+                <button type="button">
+                  Following
+                  <Check size={10} />
+                </button>
+
+                <button
+                  type="button"
+                  className={styles.bellButton}
+                >
+                  <Bell size={13} />
+                </button>
+              </div>
+            </div>
+
+            <div className={styles.phoneStats}>
+              <div>
+                <strong>128</strong>
+                <span>Posts</span>
+              </div>
+
+              <div>
+                <strong>24.5K</strong>
+                <span>Followers</span>
+              </div>
+
+              <div>
+                <strong>8</strong>
+                <span>Following</span>
+              </div>
+            </div>
+
+            <div className={styles.phoneCards}>
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div className={styles.followCard}>
-            <div className={styles.instagramIcon}>
-              <FaInstagram />
-            </div>
-
-            <div>
-              <strong>Follow & Connect</strong>
-              <small>Stay updated with rewards</small>
-            </div>
-
-            <FiArrowUpRight />
+      <div className={styles.rewardCard}>
+        <div className={styles.rewardTop}>
+          <div className={styles.rewardIcon}>
+            <Gift size={20} />
           </div>
 
-          <div className={styles.followCard}>
-            <div className={styles.youtubeIcon}>
-              <FaYoutube />
-            </div>
-
-            <div>
-              <strong>Latest Updates</strong>
-              <small>Discover new campaigns</small>
-            </div>
-
-            <FiArrowUpRight />
-          </div>
-
-          <div className={styles.rewardBubble}>
-            <strong>+500</strong>
-            <span>SVEs</span>
-          </div>
+          <p>
+            Participate in eligible
+            <br />
+            social campaigns to
+            <br />
+            unlock rewards.
+          </p>
         </div>
 
-        <div className={`${styles.floatingIcon} ${styles.iconOne}`}>
-          <FaInstagram />
-        </div>
+        <div className={styles.rewardDivider}></div>
 
-        <div className={`${styles.floatingIcon} ${styles.iconTwo}`}>
-          <FaYoutube />
-        </div>
+        <strong className={styles.rewardAmount}>
+          +500 S VEs
+        </strong>
 
-        <div className={`${styles.floatingIcon} ${styles.iconThree}`}>
-          <FaTelegramPlane />
-        </div>
+        <span className={styles.rewardCaption}>
+          Demo Campaign
+        </span>
       </div>
     </section>
   );

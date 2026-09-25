@@ -1,278 +1,758 @@
 .banner {
   position: relative;
   width: 100%;
-  min-height: 430px;
+  min-height: 440px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 46% 54%;
   align-items: center;
-  padding: 55px 7%;
+  padding: 42px 6.5%;
   background:
     radial-gradient(
-      circle at 80% 45%,
-      rgba(214, 164, 76, 0.16),
+      circle at 78% 50%,
+      rgba(235, 171, 42, 0.14),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 62% 100%,
+      rgba(52, 95, 160, 0.12),
       transparent 32%
     ),
-    linear-gradient(120deg, #171925 0%, #1c1e2c 55%, #14151f 100%);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+    #070910;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  isolation: isolate;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px
+    );
+  background-size: 70px 70px;
+  mask-image: linear-gradient(to right, transparent, black 35%, black 100%);
+}
+
+.backgroundGlow {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: rgba(238, 177, 44, 0.08);
+  filter: blur(90px);
+  pointer-events: none;
+  animation: glowPulse 5s ease-in-out infinite;
+}
+
+.gridLines {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 58%;
+  height: 100%;
+  opacity: 0.16;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 48%,
+      rgba(245, 195, 83, 0.45) 49%,
+      transparent 50%
+    ),
+    linear-gradient(
+      70deg,
+      transparent 48%,
+      rgba(245, 195, 83, 0.25) 49%,
+      transparent 50%
+    );
+  background-size: 150px 150px;
+  pointer-events: none;
+}
+
+.number {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  z-index: 10;
+  padding: 7px 11px;
+  border: 1px solid rgba(245, 195, 83, 0.2);
+  border-radius: 8px;
+  background: rgba(245, 195, 83, 0.04);
+  color: #f4c65c;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .content {
   position: relative;
-  z-index: 2;
-  max-width: 650px;
+  z-index: 10;
+  max-width: 570px;
+  padding-top: 10px;
 }
 
 .badge {
-  display: inline-flex;
+  width: fit-content;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(222, 177, 87, 0.25);
+  gap: 9px;
+  margin-bottom: 22px;
+  padding: 8px 15px;
+  border: 1px solid rgba(245, 195, 83, 0.32);
   border-radius: 999px;
-  color: #e3bc72;
-  background: rgba(222, 177, 87, 0.08);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.4px;
+  background: rgba(245, 195, 83, 0.045);
+  color: #f4c65c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
 }
 
 .content h1 {
   margin: 0;
-  color: #ffffff;
-  font-size: clamp(42px, 5vw, 70px);
+  color: #f8f9fb;
+  font-size: clamp(48px, 5.1vw, 72px);
+  font-weight: 800;
   line-height: 0.98;
-  letter-spacing: -3px;
+  letter-spacing: -3.5px;
 }
 
 .content h1 span {
   display: block;
-  color: #dfb969;
+  color: #f4b936;
 }
 
 .description {
-  max-width: 570px;
-  margin: 24px 0 28px;
-  color: #aeb3c5;
-  font-size: 17px;
-  line-height: 1.7;
+  max-width: 520px;
+  margin: 22px 0 20px;
+  color: rgba(238, 242, 250, 0.68);
+  font-size: 14px;
+  line-height: 1.65;
 }
 
-.stats {
+.poolCard {
+  width: fit-content;
+  min-width: 330px;
   display: flex;
-  gap: 38px;
-  margin-bottom: 30px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 11px;
+  background: rgba(12, 15, 24, 0.8);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.03),
+    0 12px 30px rgba(0, 0, 0, 0.22);
 }
 
-.stats div {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.poolIcon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: rgba(244, 190, 62, 0.13);
+  color: #f4bd46;
 }
 
-.stats strong {
-  color: #ffffff;
-  font-size: 21px;
+.poolText span {
+  display: block;
+  margin-bottom: 2px;
+  color: rgba(255, 255, 255, 0.44);
+  font-size: 8px;
 }
 
-.stats span {
-  color: #777d91;
-  font-size: 12px;
+.poolText strong {
+  color: #f6c858;
+  font-size: 14px;
+}
+
+.poolSuffix {
+  margin-left: 4px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.poolSuffix span {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 10px;
 }
 
 .cta {
+  min-width: 230px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 21px;
-  border: 0;
-  border-radius: 12px;
-  color: #17130b;
-  background: linear-gradient(135deg, #f0cb7a, #c9953e);
+  justify-content: center;
+  gap: 16px;
+  padding: 13px 20px;
+  border: 1px solid rgba(246, 190, 69, 0.72);
+  border-radius: 11px;
+  background: linear-gradient(
+    180deg,
+    rgba(104, 72, 21, 0.36),
+    rgba(55, 39, 13, 0.45)
+  );
+  color: #f8ce69;
   font-size: 14px;
   font-weight: 800;
   cursor: pointer;
+  box-shadow:
+    inset 0 0 15px rgba(245, 190, 68, 0.08),
+    0 0 25px rgba(224, 163, 42, 0.08);
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
 .cta:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(214, 164, 76, 0.22);
+  background: linear-gradient(
+    180deg,
+    rgba(121, 84, 23, 0.46),
+    rgba(65, 45, 13, 0.52)
+  );
+  box-shadow:
+    inset 0 0 18px rgba(245, 190, 68, 0.1),
+    0 10px 30px rgba(224, 163, 42, 0.18);
+}
+
+.cta:active {
+  transform: translateY(0);
+}
+
+.cta:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
 }
 
 .visual {
   position: relative;
-  min-height: 350px;
+  width: 100%;
+  min-height: 380px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 }
 
-.glow {
+.graph {
   position: absolute;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: rgba(213, 164, 72, 0.1);
-  filter: blur(35px);
-  animation: pulse 4s ease-in-out infinite;
+  inset: 45px 0 55px;
+  opacity: 0.7;
 }
 
-.trophyCircle {
+.graph svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.graphLine {
+  fill: none;
+  stroke: rgba(245, 193, 73, 0.58);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 5px rgba(245, 193, 73, 0.45));
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: drawGraph 5s ease forwards;
+}
+
+.graphLineSecondary {
+  fill: none;
+  stroke: rgba(93, 140, 204, 0.28);
+  stroke-width: 1.5;
+}
+
+.graphDot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f5c34f;
+  box-shadow: 0 0 12px rgba(245, 195, 79, 0.9);
+  animation: dotPulse 2.2s ease-in-out infinite;
+}
+
+.dot1 {
+  left: 18%;
+  top: 52%;
+}
+
+.dot2 {
+  left: 38%;
+  top: 35%;
+  animation-delay: 0.4s;
+}
+
+.dot3 {
+  left: 57%;
+  top: 27%;
+  animation-delay: 0.8s;
+}
+
+.dot4 {
+  left: 76%;
+  top: 17%;
+  animation-delay: 1.2s;
+}
+
+.dot5 {
+  right: 5%;
+  top: 6%;
+  animation-delay: 1.6s;
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particles span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #f7ca61;
+  box-shadow: 0 0 9px rgba(247, 202, 97, 0.9);
+  animation: particleFloat 3.5s ease-in-out infinite;
+}
+
+.particles span:nth-child(1) {
+  left: 8%;
+  top: 40%;
+}
+
+.particles span:nth-child(2) {
+  left: 20%;
+  top: 23%;
+  animation-delay: 0.3s;
+}
+
+.particles span:nth-child(3) {
+  left: 30%;
+  top: 55%;
+  animation-delay: 0.7s;
+}
+
+.particles span:nth-child(4) {
+  left: 42%;
+  top: 13%;
+  animation-delay: 1s;
+}
+
+.particles span:nth-child(5) {
+  left: 56%;
+  top: 35%;
+  animation-delay: 1.3s;
+}
+
+.particles span:nth-child(6) {
+  left: 68%;
+  top: 10%;
+  animation-delay: 0.5s;
+}
+
+.particles span:nth-child(7) {
+  left: 80%;
+  top: 32%;
+  animation-delay: 1.5s;
+}
+
+.particles span:nth-child(8) {
+  left: 91%;
+  top: 22%;
+  animation-delay: 1.8s;
+}
+
+.particles span:nth-child(9) {
+  left: 13%;
+  top: 72%;
+  animation-delay: 2s;
+}
+
+.particles span:nth-child(10) {
+  left: 88%;
+  top: 65%;
+  animation-delay: 2.3s;
+}
+
+.trophyArea {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  z-index: 5;
+  width: 220px;
+  height: 245px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.trophyGlow {
   position: absolute;
   top: 25px;
-  right: 16%;
-  width: 150px;
-  height: 150px;
+  width: 205px;
+  height: 205px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #e2b969;
-  background: linear-gradient(
-    145deg,
-    rgba(244, 207, 126, 0.18),
-    rgba(181, 130, 46, 0.06)
+  background: radial-gradient(
+    circle,
+    rgba(249, 190, 54, 0.23),
+    rgba(249, 190, 54, 0.07) 45%,
+    transparent 70%
   );
-  border: 1px solid rgba(239, 198, 111, 0.25);
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.3),
-    inset 0 0 30px rgba(236, 188, 89, 0.06);
-  animation: float 4s ease-in-out infinite;
+  filter: blur(5px);
+  animation: trophyGlow 3.5s ease-in-out infinite;
 }
 
 .crown {
   position: absolute;
-  top: -20px;
-  right: 2px;
-  fill: #e2b969;
+  top: 1px;
+  z-index: 8;
+  color: #ffd96d;
+  fill: #e9a72f;
+  filter: drop-shadow(0 0 13px rgba(248, 190, 57, 0.7));
+  animation: crownFloat 3s ease-in-out infinite;
+}
+
+.trophyCup {
+  position: absolute;
+  top: 47px;
+  z-index: 6;
+  width: 170px;
+  height: 170px;
+  display: grid;
+  place-items: center;
+  color: #f8c64f;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(255, 224, 130, 0.25),
+      rgba(198, 131, 23, 0.08) 55%,
+      transparent 70%
+    );
+  filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.4));
+  animation: trophyFloat 4s ease-in-out infinite;
+}
+
+.trophyCup svg {
+  filter: drop-shadow(0 0 12px rgba(250, 190, 58, 0.6));
+}
+
+.trophyStar {
+  position: absolute;
+  top: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffe99c;
+  font-size: 25px;
+  text-shadow: 0 0 12px rgba(255, 226, 120, 0.8);
+}
+
+.trophyBase {
+  position: absolute;
+  bottom: 15px;
+  z-index: 7;
+  width: 82px;
+  height: 19px;
+  border: 2px solid #c58a25;
+  border-radius: 5px;
+  background: linear-gradient(
+    180deg,
+    #f4c451,
+    #8d5c17
+  );
+  box-shadow:
+    0 0 15px rgba(238, 175, 38, 0.3),
+    0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.medalRing {
+  position: absolute;
+  right: 8px;
+  top: 76px;
+  z-index: 10;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(248, 198, 80, 0.4);
+  border-radius: 50%;
+  background: rgba(15, 17, 25, 0.85);
+  color: #f5c858;
 }
 
 .podium {
   position: absolute;
-  width: min(430px, 90%);
-  right: 0;
-  bottom: 5px;
+  bottom: 3px;
+  z-index: 8;
+  width: min(95%, 520px);
+  height: 190px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  perspective: 800px;
+}
+
+.podiumCard {
+  position: relative;
+  width: 31%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
-
-.player {
-  display: flex;
   align-items: center;
-  gap: 13px;
-  padding: 13px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
-  background: rgba(27, 29, 42, 0.9);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease;
+  padding-top: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: none;
+  border-radius: 17px 17px 5px 5px;
+  background: linear-gradient(
+    180deg,
+    rgba(25, 29, 40, 0.98),
+    rgba(8, 10, 16, 0.99)
+  );
+  box-shadow:
+    0 -15px 35px rgba(0, 0, 0, 0.35),
+    inset 0 1px rgba(255, 255, 255, 0.05);
 }
 
-.player:hover {
-  transform: translateX(-8px);
-  border-color: rgba(225, 184, 101, 0.35);
+.podiumCard::after {
+  content: "";
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 0;
+  height: 3px;
+  border-radius: 5px;
+  background: currentColor;
+  box-shadow: 0 0 16px currentColor;
 }
 
-.first {
-  border-color: rgba(225, 184, 101, 0.3);
-  background: rgba(55, 46, 29, 0.72);
+.podiumCard.second {
+  height: 135px;
+  color: #65a7ff;
+  border-color: rgba(72, 142, 237, 0.55);
+  box-shadow:
+    0 0 28px rgba(40, 120, 230, 0.14),
+    inset 0 1px rgba(113, 173, 255, 0.14);
 }
 
-.playerIcon {
-  width: 38px;
-  height: 38px;
+.podiumCard.first {
+  height: 172px;
+  color: #f7bd42;
+  border-color: rgba(245, 187, 55, 0.65);
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(235, 169, 42, 0.14),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(44, 34, 16, 0.98),
+      rgba(10, 11, 17, 0.99)
+    );
+  box-shadow:
+    0 0 45px rgba(231, 166, 37, 0.2),
+    inset 0 1px rgba(255, 213, 108, 0.2);
+}
+
+.podiumCard.third {
+  height: 118px;
+  color: #f28e37;
+  border-color: rgba(244, 133, 45, 0.5);
+  box-shadow:
+    0 0 25px rgba(244, 133, 45, 0.12),
+    inset 0 1px rgba(255, 180, 91, 0.12);
+}
+
+.rankCircle {
+  width: 39px;
+  height: 39px;
+  position: absolute;
+  top: -19px;
   display: grid;
   place-items: center;
-  border-radius: 11px;
-  background: rgba(255, 255, 255, 0.07);
-  font-size: 20px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background: #0b0d14;
+  color: currentColor;
+  font-size: 12px;
+  font-weight: 900;
+  box-shadow: 0 0 18px currentColor;
 }
 
-.playerInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  flex: 1;
+.first .rankCircle {
+  background: #f4bd42;
+  color: #211604;
+  border-color: #ffe291;
+  box-shadow: 0 0 20px rgba(245, 188, 62, 0.65);
 }
 
-.playerInfo strong {
-  color: #f2f3f7;
-  font-size: 13px;
+.userAvatar {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  margin-top: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #303849, #10131c);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
 }
 
-.playerInfo span {
-  color: #858b9e;
+.first .userAvatar {
+  border-color: #f4c453;
+  background: linear-gradient(145deg, #f4c453, #855919);
+  color: #261a05;
+}
+
+.podiumCard strong {
+  margin-top: 8px;
+  color: #f5f6fa;
   font-size: 11px;
 }
 
-.trending {
-  color: #72c69a;
+.podiumCard span {
+  margin-top: 4px;
+  color: currentColor;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.winnerCrown {
+  position: absolute;
+  right: 9px;
+  top: 8px;
+  color: #f7c653;
+  filter: drop-shadow(0 0 7px rgba(247, 198, 83, 0.7));
+}
+
+.platformGlow {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  z-index: 3;
+  width: 500px;
+  height: 80px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(235, 168, 33, 0.13);
+  filter: blur(20px);
 }
 
 .floatingCoin {
   position: absolute;
-  top: 5px;
-  left: 8%;
-  width: 52px;
-  height: 52px;
+  right: 6%;
+  top: 24%;
+  z-index: 9;
+  width: 43px;
+  height: 43px;
   display: grid;
   place-items: center;
+  border: 2px solid rgba(255, 224, 141, 0.55);
   border-radius: 50%;
-  color: #6e4c18;
-  background: linear-gradient(145deg, #ffe49b, #c89137);
-  border: 4px solid rgba(255, 255, 255, 0.15);
-  font-size: 12px;
+  background: linear-gradient(145deg, #ffe28b, #b87920);
+  color: #4d3309;
+  font-size: 9px;
   font-weight: 900;
-  box-shadow: 0 12px 30px rgba(201, 145, 55, 0.2);
-  animation: float 3.5s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(242, 181, 46, 0.3);
+  animation: coinFloat 3.4s ease-in-out infinite;
 }
 
 .floatingSpark {
   position: absolute;
-  right: 3%;
-  top: 43%;
-  color: #e3bb6d;
+  left: 5%;
+  top: 28%;
+  z-index: 9;
+  color: #f7c958;
+  filter: drop-shadow(0 0 8px rgba(247, 201, 88, 0.7));
   animation: sparkle 2.5s ease-in-out infinite;
 }
 
-.medal {
+.trendLabel {
   position: absolute;
-  left: 4%;
-  bottom: 15%;
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  color: #e3bb6d;
-  background: rgba(223, 185, 105, 0.1);
-  border: 1px solid rgba(223, 185, 105, 0.2);
-  animation: float 4.5s ease-in-out infinite;
+  right: 1%;
+  top: 53%;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 9px;
+  border: 1px solid rgba(103, 188, 137, 0.25);
+  border-radius: 999px;
+  background: rgba(9, 16, 14, 0.8);
+  color: #73c694;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
 }
 
-@keyframes float {
+@keyframes glowPulse {
   0%,
   100% {
-    transform: translateY(0);
+    opacity: 0.55;
+    transform: translateY(-50%) scale(0.95);
   }
 
   50% {
-    transform: translateY(-10px);
+    opacity: 0.9;
+    transform: translateY(-50%) scale(1.08);
   }
 }
 
-@keyframes pulse {
+@keyframes drawGraph {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dotPulse {
   0%,
   100% {
-    transform: scale(0.95);
-    opacity: 0.6;
+    transform: scale(0.8);
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+}
+
+@keyframes particleFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: translateY(-13px);
+    opacity: 1;
+  }
+}
+
+@keyframes trophyGlow {
+  0%,
+  100% {
+    transform: scale(0.94);
+    opacity: 0.7;
   }
 
   50% {
@@ -281,64 +761,124 @@
   }
 }
 
-@keyframes sparkle {
+@keyframes trophyFloat {
   0%,
   100% {
-    transform: scale(0.8) rotate(0deg);
-    opacity: 0.5;
+    transform: translateY(0);
   }
 
   50% {
-    transform: scale(1.15) rotate(15deg);
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes crownFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(3deg);
+  }
+}
+
+@keyframes coinFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(8deg);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(0.75) rotate(0);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: scale(1.15) rotate(18deg);
     opacity: 1;
   }
 }
 
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .banner {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 45px 6%;
-  }
-
-  .visual {
-    min-height: 380px;
+    grid-template-columns: 45% 55%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
   .content h1 {
-    font-size: clamp(42px, 8vw, 60px);
+    font-size: clamp(43px, 5.2vw, 62px);
   }
 
   .podium {
-    right: 50%;
-    transform: translateX(50%);
+    width: 100%;
   }
 
-  .trophyCircle {
-    right: 50%;
-    transform: translateX(50%);
+  .trendLabel {
+    right: -2%;
   }
 }
 
+@media (max-width: 850px) {
+  .banner {
+    min-height: 650px;
+    grid-template-columns: 1fr;
+    padding: 55px 7% 25px;
+  }
 
-/* =========================
-   MOBILE
-========================= */
+  .content {
+    max-width: 620px;
+  }
+
+  .visual {
+    min-height: 350px;
+  }
+
+  .graph {
+    inset: 20px 0 30px;
+  }
+
+  .trophyArea {
+    top: -10px;
+  }
+
+  .podium {
+    bottom: 0;
+  }
+}
 
 @media (max-width: 560px) {
   .banner {
-    min-height: 520px;
-    padding: 38px 22px;
+    min-height: 690px;
+    padding: 52px 18px 18px;
+    border-radius: 20px;
   }
 
-  /* Center content */
+  .number {
+    top: 17px;
+    left: 17px;
+    font-size: 20px;
+    padding: 6px 9px;
+  }
+
   .content {
     text-align: center;
+    padding-top: 8px;
+  }
+
+  .badge {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 8px;
+    padding: 7px 11px;
   }
 
   .content h1 {
@@ -346,103 +886,148 @@
     letter-spacing: -2px;
   }
 
-  /* Center badge */
-  .badge {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Description */
   .description {
-    font-size: 15px;
+    max-width: 360px;
+    margin: 16px auto 18px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .poolCard {
+    min-width: 0;
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
+    padding: 8px 10px;
   }
 
-  /* Center statistics */
-  .stats {
-    gap: 20px;
-    justify-content: center;
+  .poolIcon {
+    width: 30px;
+    height: 30px;
   }
 
-  .stats strong {
-    font-size: 17px;
+  .poolText strong {
+    font-size: 12px;
   }
 
-  /* Center CTA */
+  .poolSuffix span {
+    font-size: 8px;
+  }
+
   .cta {
-    display: flex;
-    width: max-content;
+    min-width: 220px;
     margin: 0 auto;
   }
 
-  /* Visual area */
   .visual {
-    min-height: 330px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 325px;
   }
 
-  /* Smaller centered trophy */
-  .trophyCircle {
-    width: 88px;
-    height: 88px;
-    top: -8px;
-    left: 50%;
-    right: auto;
-    margin-left: -44px;
-    z-index: 1;
-
-    /* Keeps trophy centered while floating */
-    animation: float 4s ease-in-out infinite;
+  .graph {
+    opacity: 0.45;
   }
 
-  .trophyCircle svg {
-    width: 54px;
-    height: 54px;
+  .trophyArea {
+    top: -3px;
+    transform: translateX(-50%) scale(0.76);
+    transform-origin: top center;
   }
 
-  /* Move crown above trophy */
-  .crown {
-    width: 22px;
-    height: 22px;
-    top: -20px;
-    right: -80px;
-  }
-
-  /* Center ranking cards */
   .podium {
     width: 100%;
+    max-width: 370px;
+    height: 155px;
+    gap: 5px;
+  }
+
+  .podiumCard.second {
+    height: 108px;
+  }
+
+  .podiumCard.first {
+    height: 137px;
+  }
+
+  .podiumCard.third {
+    height: 96px;
+  }
+
+  .userAvatar {
+    width: 34px;
+    height: 34px;
+    font-size: 11px;
+  }
+
+  .podiumCard strong {
+    font-size: 9px;
+  }
+
+  .podiumCard span {
+    font-size: 7px;
+  }
+
+  .rankCircle {
+    width: 32px;
+    height: 32px;
+    top: -16px;
+    font-size: 9px;
+  }
+
+  .floatingCoin {
+    right: 2%;
+    top: 18%;
+    width: 34px;
+    height: 34px;
+    font-size: 7px;
+  }
+
+  .floatingSpark {
+    left: 2%;
+    top: 25%;
+  }
+
+  .trendLabel {
+    display: none;
+  }
+
+  .platformGlow {
+    width: 350px;
+  }
+}
+
+@media (max-width: 380px) {
+  .banner {
+    min-height: 675px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .content h1 {
+    font-size: 37px;
+  }
+
+  .description {
+    font-size: 11px;
+  }
+
+  .poolCard {
+    transform: scale(0.92);
+  }
+
+  .cta {
+    min-width: 205px;
+    font-size: 13px;
+  }
+
+  .visual {
+    min-height: 305px;
+  }
+
+  .trophyArea {
+    transform: translateX(-50%) scale(0.68);
+  }
+
+  .podium {
     max-width: 330px;
-    left: 50%;
-    right: auto;
-    bottom: -5px;
-    transform: translateX(-50%);
-    z-index: 2;
-  }
-
-  /* Ranking card */
-  .player {
-    position: relative;
-    z-index: 3;
-    padding: 11px;
-  }
-
-  /* Move decorative medal away from cards */
-  .medal {
-    width: 36px;
-    height: 36px;
-    left: auto;
-    right: 8px;
-    bottom: 18%;
-    z-index: 1;
-    opacity: 0.75;
-  }
-
-  .medal svg {
-    width: 18px;
-    height: 18px;
   }
 }

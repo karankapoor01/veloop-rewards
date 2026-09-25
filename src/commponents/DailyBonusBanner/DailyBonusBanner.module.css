@@ -2,197 +2,168 @@
   position: relative;
   width: 100%;
   min-height: 430px;
-  padding: 70px 8%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 60px;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 33% 35% 13% 19%;
+  align-items: center;
+  padding: 30px 3.2% 30px 6%;
   background:
     radial-gradient(
-      circle at 78% 50%,
-      rgba(245, 174, 58, 0.18),
-      transparent 32%
+      circle at 48% 50%,
+      rgba(211, 137, 21, 0.13),
+      transparent 25%
     ),
-    radial-gradient(
-      circle at 35% 50%,
-      rgba(63, 91, 160, 0.15),
-      transparent 40%
-    ),
-    #161827;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    linear-gradient(
+      110deg,
+      #080a10 0%,
+      #0b0d13 58%,
+      #090a0f 100%
+    );
+  border: 1px solid rgba(214, 162, 56, 0.45);
+  border-radius: 18px;
   isolation: isolate;
+}
+
+.backgroundPattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 52%;
+  height: 100%;
+  opacity: 0.2;
+  background:
+    linear-gradient(
+      135deg,
+      transparent 47%,
+      rgba(210, 161, 60, 0.42) 48%,
+      transparent 49%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 47%,
+      rgba(210, 161, 60, 0.3) 48%,
+      transparent 49%
+    );
+  background-size: 115px 115px;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    black 22%,
+    black 100%
+  );
+  pointer-events: none;
 }
 
 .backgroundGlow {
   position: absolute;
-  width: 500px;
-  height: 500px;
-  right: 10%;
+  left: 51%;
   top: 50%;
-  transform: translateY(-50%);
+  width: 330px;
+  height: 290px;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: rgba(239, 171, 55, 0.07);
-  filter: blur(70px);
-  pointer-events: none;
-  z-index: -1;
+  background: rgba(225, 148, 26, 0.1);
+  filter: blur(65px);
+  animation: backgroundPulse 5s ease-in-out infinite;
+}
+
+.number {
+  position: absolute;
+  top: 15px;
+  left: 18px;
+  z-index: 30;
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 213, 100, 0.7);
+  border-radius: 7px;
+  background: linear-gradient(
+    145deg,
+    #c78a24,
+    #8b5914
+  );
+  color: #fff0bd;
+  font-size: 19px;
+  font-weight: 800;
+  box-shadow:
+    0 5px 15px rgba(171, 106, 18, 0.2),
+    inset 0 1px rgba(255, 255, 255, 0.25);
 }
 
 .content {
   position: relative;
-  z-index: 2;
-  width: 52%;
-  max-width: 700px;
+  z-index: 20;
+  max-width: 410px;
+  padding-top: 5px;
 }
 
-.badge {
-  width: fit-content;
+.label {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 15px;
-  margin-bottom: 22px;
-  border: 1px solid rgba(246, 194, 86, 0.45);
-  border-radius: 999px;
-  background: rgba(246, 194, 86, 0.08);
-  color: #f5c861;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  gap: 6px;
+  margin-bottom: 12px;
+  color: #d7a746;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
 }
 
-.badge svg {
-  font-size: 15px;
-}
-
-.title {
+.content h2 {
   margin: 0;
-  color: #f7f8fc;
-  font-size: clamp(42px, 5vw, 68px);
+  color: #f5f4f0;
+  font-size: clamp(32px, 3.2vw, 46px);
   line-height: 0.98;
-  letter-spacing: -2.5px;
+  letter-spacing: -1.8px;
   font-weight: 800;
 }
 
-.title span {
+.content h2 span {
   display: block;
-  color: #f3bd4f;
 }
 
 .description {
-  max-width: 600px;
-  margin: 25px 0 22px;
-  color: rgba(239, 243, 252, 0.78);
-  font-size: 16px;
-  line-height: 1.65;
-}
-
-.streakRow {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  width: fit-content;
-  margin-bottom: 22px;
-  padding: 10px 15px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.055);
-  backdrop-filter: blur(10px);
-}
-
-.streakIcon {
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  background: rgba(242, 184, 67, 0.16);
-  color: #f5c861;
-}
-
-.streakRow strong {
-  display: block;
-  color: #ffffff;
-  font-size: 14px;
-}
-
-.streakRow span {
-  display: block;
-  margin-top: 2px;
-  color: rgba(255, 255, 255, 0.52);
+  max-width: 350px;
+  margin: 14px 0 17px;
+  color: rgba(235, 233, 226, 0.67);
   font-size: 11px;
-}
-
-.progressSection {
-  max-width: 360px;
-  margin-bottom: 25px;
-}
-
-.progressTop {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 12px;
-}
-
-.progressTop strong {
-  color: #f5c861;
-}
-
-.progressBar {
-  height: 7px;
-  overflow: hidden;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.progressFill {
-  width: 71%;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(
-    90deg,
-    #d99b2d,
-    #f6c95d
-  );
-  box-shadow: 0 0 15px rgba(245, 193, 76, 0.35);
-  animation: progressLoad 1.2s ease-out;
+  line-height: 1.55;
 }
 
 .cta {
+  min-width: 157px;
+  height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  min-width: 170px;
-  padding: 14px 22px;
-  border: none;
-  border-radius: 12px;
+  gap: 8px;
+  padding: 9px 15px;
+  border: 1px solid rgba(255, 211, 91, 0.75);
+  border-radius: 7px;
   background: linear-gradient(
     135deg,
-    #f6c85d,
-    #e7a92f
+    #e3a82e,
+    #b97617
   );
-  color: #1b1b24;
-  font-size: 14px;
+  color: #241806;
+  font-size: 11px;
   font-weight: 800;
   cursor: pointer;
   box-shadow:
-    0 10px 30px rgba(226, 166, 47, 0.2);
+    0 7px 20px rgba(192, 122, 20, 0.24),
+    inset 0 1px rgba(255, 255, 255, 0.3);
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease,
-    filter 0.25s ease;
+    filter 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .cta:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   filter: brightness(1.06);
   box-shadow:
-    0 14px 35px rgba(226, 166, 47, 0.3);
+    0 10px 25px rgba(192, 122, 20, 0.34),
+    0 0 15px rgba(231, 169, 43, 0.14);
 }
 
 .cta:active {
@@ -201,22 +172,12 @@
 
 .cta:focus-visible {
   outline: 2px solid #ffffff;
-  outline-offset: 4px;
-}
-
-.cta.claimed {
-  background: linear-gradient(
-    135deg,
-    #76d69a,
-    #45b879
-  );
-  color: #102219;
+  outline-offset: 3px;
 }
 
 .visual {
   position: relative;
-  width: 44%;
-  min-height: 350px;
+  height: 360px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -224,385 +185,648 @@
 
 .visualGlow {
   position: absolute;
-  width: 330px;
-  height: 330px;
+  left: 50%;
+  top: 52%;
+  width: 250px;
+  height: 220px;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: rgba(241, 183, 61, 0.1);
-  filter: blur(55px);
-  animation: glowPulse 4s ease-in-out infinite;
+  background: rgba(236, 157, 27, 0.13);
+  filter: blur(45px);
 }
 
-.rewardCard {
-  position: relative;
-  z-index: 3;
-  width: 350px;
-  min-height: 300px;
-  padding: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 24px;
+.giftScene {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  height: 340px;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.giftBase {
+  position: absolute;
+  left: 50%;
+  bottom: 38px;
+  width: 154px;
+  height: 125px;
+  transform: translateX(-50%);
+  border: 2px solid rgba(235, 157, 35, 0.9);
+  border-radius: 4px 4px 10px 10px;
   background:
     linear-gradient(
-      145deg,
-      rgba(57, 61, 85, 0.8),
-      rgba(26, 29, 45, 0.9)
+      135deg,
+      #f6b234 0%,
+      #db7a13 45%,
+      #934507 100%
     );
   box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(16px);
-  transform: rotate(2deg);
-  animation: cardFloat 5s ease-in-out infinite;
+    0 22px 38px rgba(0, 0, 0, 0.48),
+    0 0 30px rgba(239, 157, 28, 0.26),
+    inset 0 1px rgba(255, 239, 167, 0.55);
+  animation: boxFloat 4s ease-in-out infinite;
 }
 
-.cardTop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cardLabel {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.cardLabel svg {
-  color: #f5c861;
-  font-size: 16px;
-}
-
-.star {
-  color: #f5c861;
-  animation: starSpin 5s linear infinite;
-}
-
-.giftBox {
-  position: relative;
-  width: 105px;
-  height: 100px;
-  margin: 25px auto 15px;
-}
-
-.giftBody {
+.giftBase::after {
+  content: "";
   position: absolute;
-  left: 10px;
-  bottom: 0;
-  width: 85px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px 10px 14px 14px;
-  background: linear-gradient(
-    135deg,
-    #e9a832,
-    #f5ca62
-  );
-  box-shadow:
-    0 15px 30px rgba(230, 166, 43, 0.25);
+  left: 5%;
+  bottom: -8px;
+  width: 90%;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(65, 30, 5, 0.45);
+  filter: blur(5px);
 }
 
-.giftBody svg {
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 34px;
+.innerLight {
+  position: absolute;
+  left: 50%;
+  top: -55px;
+  width: 125px;
+  height: 95px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(255, 192, 59, 0.5);
+  filter: blur(25px);
+}
+
+.ribbonVertical {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 26px;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: 5;
+  background:
+    linear-gradient(
+      90deg,
+      #a95208,
+      #ffd55b 48%,
+      #c76d0e
+    );
+}
+
+.ribbonHorizontal {
+  position: absolute;
+  left: -2px;
+  top: 42px;
+  width: calc(100% + 4px);
+  height: 21px;
+  z-index: 6;
+  background:
+    linear-gradient(
+      180deg,
+      #ffd052,
+      #bf650d
+    );
 }
 
 .giftLid {
   position: absolute;
-  left: 4px;
-  top: 20px;
-  width: 97px;
-  height: 23px;
-  border-radius: 7px;
-  background: linear-gradient(
-    135deg,
-    #f4bf50,
-    #d99527
-  );
-  z-index: 2;
+  left: 50%;
+  top: 82px;
+  z-index: 15;
+  width: 180px;
+  height: 67px;
+  transform: translateX(-50%);
+  border: 2px solid rgba(238, 161, 36, 0.9);
+  border-radius: 5px;
+  background:
+    linear-gradient(
+      135deg,
+      #ffc347,
+      #e17b14 55%,
+      #a54b08 100%
+    );
+  box-shadow:
+    0 15px 28px rgba(0, 0, 0, 0.43),
+    0 0 25px rgba(245, 161, 27, 0.25);
+  animation: lidFloat 4s ease-in-out infinite;
 }
 
-.giftRibbon {
+.giftLid::after {
+  content: "";
   position: absolute;
-  left: 47px;
-  top: 18px;
-  width: 13px;
-  height: 82px;
-  border-radius: 3px;
-  background: rgba(255, 239, 184, 0.85);
-  z-index: 4;
+  left: 50%;
+  top: 0;
+  width: 27px;
+  height: 100%;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(
+      90deg,
+      #a95108,
+      #ffd75f,
+      #c66b0d
+    );
 }
 
-.rewardInfo {
-  text-align: center;
+.bow {
+  position: absolute;
+  top: -53px;
+  width: 74px;
+  height: 57px;
+  border: 8px solid #efa52a;
+  background:
+    linear-gradient(
+      145deg,
+      #ffe272,
+      #c56d10
+    );
+  box-shadow:
+    0 7px 16px rgba(0, 0, 0, 0.32),
+    0 0 18px rgba(255, 185, 45, 0.25);
 }
 
-.rewardInfo span {
-  display: block;
-  color: rgba(255, 255, 255, 0.5);
+.bowLeft {
+  left: 7px;
+  border-radius: 70% 30% 50% 65%;
+  transform: rotate(-25deg);
+}
+
+.bowRight {
+  right: 7px;
+  border-radius: 30% 70% 65% 50%;
+  transform: rotate(25deg);
+}
+
+.bowCenter {
+  position: absolute;
+  left: 50%;
+  top: -28px;
+  z-index: 5;
+  width: 33px;
+  height: 33px;
+  transform: translateX(-50%);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 229, 125, 0.7);
+  background:
+    linear-gradient(
+      145deg,
+      #ffe47a,
+      #bf7315
+    );
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.35),
+    0 0 12px rgba(255, 188, 48, 0.25);
+}
+
+.mainCoin {
+  position: absolute;
+  left: 50%;
+  top: -43px;
+  z-index: 25;
+  width: 67px;
+  height: 67px;
+  display: grid;
+  place-items: center;
+  transform: translateX(-50%);
+  border: 5px solid #e8a42b;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 30% 24%,
+      #fff2a7,
+      #e2a02b 58%,
+      #9e5709
+    );
+  color: #855009;
+  font-size: 17px;
+  font-weight: 900;
+  box-shadow:
+    0 0 28px rgba(255, 192, 55, 0.58),
+    inset 0 3px rgba(255, 255, 255, 0.55);
+  animation: coinPulse 2.6s ease-in-out infinite;
+}
+
+.sideCoinLeft,
+.sideCoinRight {
+  position: absolute;
+  bottom: 19px;
+  z-index: 18;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border: 3px solid #e9a52f;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 30% 24%,
+      #ffe995,
+      #d98c1e 68%,
+      #9a4f08
+    );
+  color: #8b5209;
   font-size: 11px;
+  font-weight: 900;
+  box-shadow:
+    0 9px 18px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(241, 169, 38, 0.3);
 }
 
-.rewardInfo strong {
+.sideCoinLeft {
+  left: 13px;
+  transform: rotate(-14deg);
+  animation: sideCoinFloat 3.5s ease-in-out infinite;
+}
+
+.sideCoinRight {
+  right: 13px;
+  transform: rotate(14deg);
+  animation: sideCoinFloat 3.8s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.smallCoinLeft,
+.smallCoinRight {
+  position: absolute;
+  bottom: 12px;
+  width: 21px;
+  height: 12px;
+  border-radius: 50%;
+  background:
+    linear-gradient(
+      180deg,
+      #ffd55d,
+      #b9660c
+    );
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.35);
+}
+
+.smallCoinLeft {
+  left: 72px;
+  transform: rotate(15deg);
+}
+
+.smallCoinRight {
+  right: 72px;
+  transform: rotate(-15deg);
+}
+
+.particle {
+  position: absolute;
+  z-index: 5;
+  color: #f5c04f;
+  font-size: 10px;
+  filter: drop-shadow(
+    0 0 6px rgba(245, 188, 60, 0.7)
+  );
+  animation: particleFloat 3s ease-in-out infinite;
+}
+
+.particleOne {
+  left: 12%;
+  top: 25%;
+}
+
+.particleTwo {
+  left: 22%;
+  top: 15%;
+  animation-delay: 0.6s;
+}
+
+.particleThree {
+  right: 19%;
+  top: 24%;
+  animation-delay: 1s;
+}
+
+.particleFour {
+  right: 8%;
+  top: 42%;
+  animation-delay: 0.4s;
+}
+
+.particleFive {
+  left: 8%;
+  top: 54%;
+  animation-delay: 1.4s;
+}
+
+.bonusCard {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  max-width: 155px;
+  justify-self: center;
+  padding: 15px;
+  border: 1px solid rgba(213, 160, 52, 0.4);
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(31, 28, 22, 0.98),
+      rgba(11, 12, 16, 0.98)
+    );
+  box-shadow:
+    0 15px 28px rgba(0, 0, 0, 0.3),
+    inset 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.cardLabel {
   display: block;
-  margin-top: 4px;
-  color: #f7c95d;
-  font-size: 25px;
+  color: #c9a35c;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
 }
 
-.cardBottom {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  padding-top: 15px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.45);
+.bonusAmount {
+  margin-top: 9px;
+  color: #f7f4ec;
+  font-size: 23px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.bonusAmount span {
+  color: #eabc56;
   font-size: 10px;
 }
 
 .available {
   display: flex;
   align-items: center;
-  gap: 6px;
-  color: #83dca5;
+  gap: 5px;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.47);
+  font-size: 7px;
 }
 
 .available i {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
+  display: block;
   border-radius: 50%;
-  background: #83dca5;
-  box-shadow: 0 0 8px rgba(131, 220, 165, 0.7);
+  background: #65c58b;
+  box-shadow: 0 0 7px rgba(101, 197, 139, 0.7);
 }
 
-.coin {
-  position: absolute;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-weight: 800;
-  font-size: 11px;
-  background: linear-gradient(
-    145deg,
-    #ffe08a,
-    #d99b2d
-  );
-  color: #654710;
-  border: 2px solid rgba(255, 244, 194, 0.65);
+.streakCard {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  max-width: 235px;
+  justify-self: end;
+  padding: 15px;
+  border: 1px solid rgba(207, 157, 55, 0.36);
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(27, 27, 27, 0.98),
+      rgba(11, 12, 16, 0.98)
+    );
   box-shadow:
-    0 10px 25px rgba(228, 170, 46, 0.28);
+    0 15px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px rgba(255, 255, 255, 0.04);
 }
 
-.coinOne {
-  width: 52px;
-  height: 52px;
-  top: 12%;
-  left: 8%;
-  animation: coinFloat 4s ease-in-out infinite;
+.streakTitle {
+  text-align: center;
+  color: #d9b45d;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
 }
 
-.coinTwo {
-  width: 35px;
-  height: 35px;
-  bottom: 20%;
-  left: 3%;
-  font-size: 18px;
-  animation: coinFloat 3.5s ease-in-out infinite 0.5s;
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  margin-top: 9px;
 }
 
-.coinThree {
-  width: 46px;
-  height: 46px;
-  right: 2%;
-  top: 22%;
-  animation: coinFloat 4.5s ease-in-out infinite 1s;
-}
-
-.miniCalendar {
-  position: absolute;
-  z-index: 6;
-  right: 2%;
-  bottom: 12%;
-  width: 76px;
-  padding: 12px;
+.day {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 15px;
-  background: rgba(35, 39, 59, 0.8);
+  gap: 4px;
+}
+
+.day > span {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 6px;
+}
+
+.completedCircle,
+.emptyCircle {
+  width: 23px;
+  height: 23px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 7px;
+  font-weight: 800;
+}
+
+.completedCircle {
+  background:
+    linear-gradient(
+      145deg,
+      #f6c750,
+      #bc7817
+    );
+  color: #3b2305;
   box-shadow:
-    0 15px 30px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  animation: calendarFloat 4s ease-in-out infinite;
+    0 0 9px rgba(238, 175, 48, 0.25),
+    inset 0 1px rgba(255, 255, 255, 0.42);
 }
 
-.miniCalendar svg {
-  color: #f5c861;
-  font-size: 17px;
+.emptyCircle {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(255, 255, 255, 0.55);
 }
 
-.miniCalendar span {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 8px;
-  letter-spacing: 1px;
+.divider {
+  width: 100%;
+  height: 1px;
+  margin: 11px 0 9px;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.miniCalendar strong {
-  color: #ffffff;
-  font-size: 20px;
+.streakCard strong {
+  display: block;
+  color: #edc45a;
+  font-size: 12px;
+  font-weight: 800;
 }
 
-@keyframes cardFloat {
+.comeBack {
+  display: block;
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 7px;
+}
+
+@keyframes boxFloat {
   0%,
   100% {
-    transform: translateY(0) rotate(2deg);
+    transform: translateX(-50%) translateY(0);
   }
 
   50% {
-    transform: translateY(-10px) rotate(2deg);
+    transform: translateX(-50%) translateY(-5px);
   }
 }
 
-@keyframes coinFloat {
+@keyframes lidFloat {
   0%,
   100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateX(-50%) translateY(0);
   }
 
   50% {
-    transform: translateY(-13px) rotate(8deg);
+    transform: translateX(-50%) translateY(-8px);
   }
 }
 
-@keyframes calendarFloat {
+@keyframes coinPulse {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateX(-50%) scale(1);
   }
 
   50% {
-    transform: translateY(-8px);
+    transform: translateX(-50%) scale(1.06);
   }
 }
 
-@keyframes glowPulse {
+@keyframes sideCoinFloat {
   0%,
   100% {
-    opacity: 0.5;
-    transform: scale(0.95);
+    translate: 0 0;
   }
 
   50% {
-    opacity: 0.85;
-    transform: scale(1.05);
+    translate: 0 -6px;
   }
 }
 
-@keyframes progressLoad {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 71%;
-  }
-}
-
-@keyframes starSpin {
-  0% {
-    transform: rotate(0deg);
-  }
-
+@keyframes particleFloat {
+  0%,
   100% {
-    transform: rotate(360deg);
+    transform: translateY(0) scale(0.8);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes backgroundPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translate(-50%, -50%) scale(0.97);
+  }
+
+  50% {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+}
+
+@media (max-width: 1200px) {
+  .banner {
+    grid-template-columns: 32% 35% 14% 19%;
+    padding-left: 5%;
+    padding-right: 2.5%;
+  }
+
+  .content h2 {
+    font-size: clamp(29px, 3vw, 42px);
+  }
+
+  .giftScene {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  .bonusCard {
+    max-width: 145px;
+  }
+
+  .streakCard {
+    max-width: 215px;
   }
 }
 
 @media (max-width: 900px) {
   .banner {
-    min-height: 520px;
-    padding: 60px 6%;
-    gap: 30px;
+    min-height: 690px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 330px auto auto;
+    padding: 55px 7% 22px;
+    gap: 6px;
+  }
+
+  .backgroundPattern {
+    width: 75%;
   }
 
   .content {
-    width: 50%;
+    max-width: 600px;
   }
 
   .visual {
-    width: 50%;
+    height: 330px;
   }
 
-  .rewardCard {
-    width: 300px;
+  .bonusCard {
+    justify-self: center;
+    max-width: 210px;
   }
 
-  .title {
-    font-size: 48px;
+  .streakCard {
+    justify-self: center;
+    max-width: 270px;
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .banner {
-    min-height: 520px;
-    padding: 45px 22px 55px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-    text-align: center;
+    min-height: 790px;
+    grid-template-rows: auto 320px auto auto;
+    padding: 54px 18px 18px;
+  }
+
+  .backgroundPattern {
+    width: 85%;
+    opacity: 0.12;
+  }
+
+  .number {
+    top: 15px;
+    left: 15px;
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
   }
 
   .content {
-    width: 100%;
-    max-width: 650px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
   }
 
-  .badge {
-    margin-left: auto;
-    margin-right: auto;
+  .label {
+    justify-content: center;
   }
 
-  .title {
-    width: 100%;
-    font-size: 43px;
-    letter-spacing: -1.8px;
-    text-align: center;
+  .content h2 {
+    font-size: 36px;
+    letter-spacing: -1.6px;
   }
 
   .description {
-    max-width: 600px;
-    margin: 20px auto;
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .streakRow {
-    margin: 0 auto 20px;
-    text-align: left;
-  }
-
-  .progressSection {
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto 22px;
-    text-align: left;
-  }
-
-  .progressTop {
-    text-align: left;
+    max-width: 340px;
+    margin: 13px auto 16px;
+    font-size: 11px;
   }
 
   .cta {
@@ -610,197 +834,36 @@
   }
 
   .visual {
-    width: 100%;
-    min-height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 320px;
   }
 
-  .rewardCard {
-    width: min(340px, 82vw);
-    min-height: 290px;
+  .giftScene {
+    transform: translate(-50%, -50%) scale(0.76);
   }
 
-  .coinOne {
-    left: 5%;
-  }
-
-  .coinThree {
-    right: 2%;
-  }
-
-  .miniCalendar {
-    right: 0;
-  }
-}
-
-@media (max-width: 430px) {
-  .banner {
-    min-height: 520px;
-    padding: 38px 18px 45px;
-    gap: 24px;
-  }
-
-  .content {
-    width: 100%;
-    align-items: center;
-  }
-
-  .badge {
-    margin-bottom: 17px;
-  }
-
-  .title {
-    font-size: 38px;
-    letter-spacing: -1.5px;
-    text-align: center;
-  }
-
-  .description {
-    max-width: 330px;
-    margin: 17px auto 19px;
-    font-size: 13px;
-    line-height: 1.6;
-  }
-
-  .streakRow {
-    margin: 0 auto 18px;
-    padding: 9px 13px;
-  }
-
-  .streakIcon {
-    width: 34px;
-    height: 34px;
-  }
-
-  .streakRow strong {
-    font-size: 13px;
-  }
-
-  .streakRow span {
-    font-size: 10px;
-  }
-
-  .progressSection {
+  .bonusCard {
     width: 100%;
     max-width: 300px;
-    margin: 0 auto 20px;
   }
 
-  .progressTop {
-    font-size: 11px;
-  }
-
-  .progressBar {
-    height: 6px;
-  }
-
-  .cta {
-    min-width: 155px;
-    padding: 13px 19px;
-    font-size: 13px;
-  }
-
-  .visual {
+  .streakCard {
     width: 100%;
-    min-height: 290px;
-  }
-
-  .rewardCard {
-    width: 290px;
-    min-height: 275px;
-    padding: 18px;
-  }
-
-  .giftBox {
-    transform: scale(0.88);
-    margin: 17px auto 8px;
-  }
-
-  .rewardInfo strong {
-    font-size: 22px;
-  }
-
-  .cardBottom {
-    margin-top: 15px;
-    padding-top: 12px;
-  }
-
-  .coinOne {
-    width: 44px;
-    height: 44px;
-    left: 2%;
-  }
-
-  .coinTwo {
-    width: 30px;
-    height: 30px;
-    left: 1%;
-    bottom: 15%;
-  }
-
-  .coinThree {
-    width: 40px;
-    height: 40px;
-    right: 1%;
-  }
-
-  .miniCalendar {
-    right: -2%;
-    bottom: 8%;
-    width: 68px;
-    padding: 10px;
-  }
-
-  .miniCalendar strong {
-    font-size: 18px;
+    max-width: 300px;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
   .banner {
+    min-height: 800px;
     padding-left: 14px;
     padding-right: 14px;
   }
 
-  .title {
-    font-size: 35px;
+  .content h2 {
+    font-size: 33px;
   }
 
-  .description {
-    max-width: 300px;
-    font-size: 12px;
-  }
-
-  .streakRow {
-    max-width: 270px;
-  }
-
-  .progressSection {
-    max-width: 280px;
-  }
-
-  .rewardCard {
-    width: 270px;
-  }
-
-  .visual {
-    min-height: 275px;
-  }
-
-  .coinOne {
-    width: 40px;
-    height: 40px;
-  }
-
-  .coinThree {
-    width: 36px;
-    height: 36px;
-  }
-
-  .miniCalendar {
-    width: 62px;
-    right: -4%;
+  .giftScene {
+    transform: translate(-50%, -50%) scale(0.68);
   }
 }

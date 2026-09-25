@@ -1,137 +1,140 @@
-import { useState } from "react";
-import {
-  FiGift,
-  FiCalendar,
-  FiCheck,
-  FiArrowUpRight,
-  FiZap,
-  FiStar,
-} from "react-icons/fi";
-
+import { Gift, CalendarDays, ArrowRight, Check } from "lucide-react";
 import styles from "./DailyBonusBanner.module.css";
 
 function DailyBonusBanner() {
-  const [claimed, setClaimed] = useState(false);
-
-  const handleClaim = () => {
-    setClaimed(true);
-
-    setTimeout(() => {
-      setClaimed(false);
-    }, 2200);
-  };
-
   return (
     <section className={styles.banner}>
+      <div className={styles.backgroundPattern}></div>
       <div className={styles.backgroundGlow}></div>
 
-      {/* LEFT CONTENT */}
+      <div className={styles.number}>05</div>
+
       <div className={styles.content}>
-        <div className={styles.badge}>
-          <FiGift />
+        <div className={styles.label}>
+          <CalendarDays size={13} />
           <span>DAILY BONUS</span>
         </div>
 
-        <h2 className={styles.title}>
+        <h2>
           Your Daily Bonus
-          <span> Is Waiting.</span>
+          <span>Is Waiting</span>
         </h2>
 
         <p className={styles.description}>
-          Check in regularly and claim your available daily reward before
-          the bonus resets.
+          Check in regularly and claim your available daily bonus before the
+          opportunity resets.
         </p>
 
-        {/* STREAK */}
-        <div className={styles.streakRow}>
-          <div className={styles.streakIcon}>
-            <FiZap />
-          </div>
-
-          <div>
-            <strong>7 Day Streak</strong>
-            <span>Keep your streak going</span>
-          </div>
-        </div>
-
-        {/* PROGRESS */}
-        <div className={styles.progressSection}>
-          <div className={styles.progressTop}>
-            <span>Weekly Progress</span>
-            <strong>5 / 7</strong>
-          </div>
-
-          <div className={styles.progressBar}>
-            <div className={styles.progressFill}></div>
-          </div>
-        </div>
-
-        {/* CTA */}
-        <button
-          className={`${styles.cta} ${claimed ? styles.claimed : ""}`}
-          onClick={handleClaim}
-        >
-          {claimed ? (
-            <>
-              <FiCheck />
-              Bonus Claimed
-            </>
-          ) : (
-            <>
-              Claim Bonus
-              <FiArrowUpRight />
-            </>
-          )}
+        <button className={styles.cta}>
+          <span>Claim Bonus</span>
+          <Gift size={17} />
+          <ArrowRight size={15} />
         </button>
       </div>
 
-      {/* RIGHT VISUAL */}
       <div className={styles.visual}>
         <div className={styles.visualGlow}></div>
 
-        {/* Floating coins */}
-        <div className={`${styles.coin} ${styles.coinOne}`}>VE</div>
-        <div className={`${styles.coin} ${styles.coinTwo}`}>+</div>
-        <div className={`${styles.coin} ${styles.coinThree}`}>25</div>
+        <div className={styles.particleOne}>◆</div>
+        <div className={styles.particleTwo}>◆</div>
+        <div className={styles.particleThree}>✦</div>
+        <div className={styles.particleFour}>◆</div>
+        <div className={styles.particleFive}>✦</div>
 
-        {/* Gift Card */}
-        <div className={styles.rewardCard}>
-          <div className={styles.cardTop}>
-            <div className={styles.cardLabel}>
-              <FiCalendar />
-              <span>TODAY'S BONUS</span>
+        <div className={styles.giftScene}>
+          <div className={styles.giftLid}>
+            <div className={styles.bowLeft}></div>
+            <div className={styles.bowRight}></div>
+            <div className={styles.bowCenter}></div>
+          </div>
+
+          <div className={styles.giftBase}>
+            <div className={styles.innerLight}></div>
+            <div className={styles.ribbonVertical}></div>
+            <div className={styles.ribbonHorizontal}></div>
+            <div className={styles.mainCoin}>VE</div>
+          </div>
+
+          <div className={styles.sideCoinLeft}>VE</div>
+          <div className={styles.sideCoinRight}>VE</div>
+
+          <div className={styles.smallCoinLeft}></div>
+          <div className={styles.smallCoinRight}></div>
+        </div>
+      </div>
+
+      <div className={styles.bonusCard}>
+        <span className={styles.cardLabel}>TODAY&apos;S BONUS</span>
+
+        <div className={styles.bonusAmount}>
+          +25 <span>GEMS</span>
+        </div>
+
+        <div className={styles.available}>
+          <span>Available Now</span>
+          <i></i>
+        </div>
+      </div>
+
+      <div className={styles.streakCard}>
+        <div className={styles.streakTitle}>7-DAY STREAK</div>
+
+        <div className={styles.days}>
+          <div className={styles.day}>
+            <span>1</span>
+            <div className={styles.completedCircle}>
+              <Check size={11} />
             </div>
-
-            <FiStar className={styles.star} />
           </div>
 
-          <div className={styles.giftBox}>
-            <div className={styles.giftRibbon}></div>
-            <div className={styles.giftLid}></div>
-            <div className={styles.giftBody}>
-              <FiGift />
+          <div className={styles.day}>
+            <span>2</span>
+            <div className={styles.completedCircle}>
+              <Check size={11} />
             </div>
           </div>
 
-          <div className={styles.rewardInfo}>
-            <span>Available Now</span>
-            <strong>+25 Gems</strong>
+          <div className={styles.day}>
+            <span>3</span>
+            <div className={styles.completedCircle}>
+              <Check size={11} />
+            </div>
           </div>
 
-          <div className={styles.cardBottom}>
-            <span>Daily Reward</span>
-            <span className={styles.available}>
-              <i></i> Available
-            </span>
+          <div className={styles.day}>
+            <span>4</span>
+            <div className={styles.completedCircle}>
+              <Check size={11} />
+            </div>
+          </div>
+
+          <div className={styles.day}>
+            <span>5</span>
+            <div className={styles.completedCircle}>
+              <Check size={11} />
+            </div>
+          </div>
+
+          <div className={styles.day}>
+            <span>6</span>
+            <div className={styles.completedCircle}>
+              <Check size={11} />
+            </div>
+          </div>
+
+          <div className={styles.day}>
+            <span>7</span>
+            <div className={styles.emptyCircle}>7</div>
           </div>
         </div>
 
-        {/* Small calendar */}
-        <div className={styles.miniCalendar}>
-          <FiCalendar />
-          <span>DAY</span>
-          <strong>24</strong>
-        </div>
+        <div className={styles.divider}></div>
+
+        <strong>6 Days Completed</strong>
+
+        <span className={styles.comeBack}>
+          Come back tomorrow!
+        </span>
       </div>
     </section>
   );
